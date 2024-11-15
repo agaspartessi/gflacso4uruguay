@@ -66,25 +66,22 @@
 
       <div class="adres">
         <div class="social" aria-label="Redes sociales">
-          <a class="red insta" aria-label="Instagram" href="http://instagram.com/flacsoargentina"></a>
-          <a class="red face" aria-label="Facebook" href="http://facebook.com/flacsoarg"></a>
-          <a class="red twi" aria-label="Twitter" href="http://twitter.com/FLACSOARGENTINA"></a>
-          <a class="red reddelinkedin" aria-label="Linkedin" href="http://linkedin.com/groups/FLACSO-Argentina-sitio-oficial-4508806?goback=.anp_4508806_1343157289546_1"></a>
-          <a class="red youtube" aria-label="Youtube" href="http://youtube.com/user/FLACSOArgentina"></a>
-          <a class="red cloud" aria-label="Soundcloud" href="https://soundcloud.com/flacsoargentina"></a>
+          <a class="red insta" aria-label="Instagram" href="https://www.instagram.com/flacsouruguay/"></a>
+          <a class="red face" aria-label="Facebook" href="https://www.facebook.com/flacso.uruguay/"></a>
+          <a class="red twi" aria-label="Twitter" href="https://x.com/FLACSOUruguay"></a>
+          <a class="red youtube" aria-label="Youtube" href="https://www.youtube.com/channel/UC3VPdq0Ii6nTwJzEfZrkmJg"></a>
         </div>
         <div class="detail">
-          <small class="facultad"><p><a href="https://flacso.org.ar">www.flacso.org.ar</a><br>Facultad Latinoamericana 
+          <small class="facultad"><p><a href="https://flacso.edu.uy">https://flacso.edu.uy</a><br>Facultad Latinoamericana 
           <br>de Ciencias Sociales <br>
-            SEDE ARGENTINA</p>
+            SEDE URUGUAY</p>
            
           </small>
           <small>
           <p>
-            Tucumán 1966 (C1050AAN)<br>
-            Ciudad Autónoma de <br>
-            Buenos Aires, Argentina<br>
-            +54 11 52389300
+            8 de Octubre 2882, cp 11600<br>
+            Montevideo, Uruguay<br>
+            (598) 2481 7459
             </p>
           </small>
         </div>
@@ -95,30 +92,3 @@
   </div>
 
 </footer>
-
-{{#js}}
-
-// Imprimir en foros
-if ( $('#page-mod-forum-discuss')){
-    var container = $('#page-mod-forum-discuss .discussionsubscription');
-    var imprimir = '<a onclick="window.print();return false;" class="forum_no_print printicon" href="#">Imprimir</a>';
-    container.append(imprimir);
-}
-
-// Tooltip
-require(['jquery','theme_gflacso_new/jquery.bootstrap-tooltip'], function($) {
-    $('.linkpop').tooltip({placement:'right',delay: { show: 1000000, hide: 1 }});
-});
-
-// Imprimir en BOOK
-if ( $('#page-mod-book-view')){
-    var container = $("#page-mod-book-view .block-region .block.block__fake div[class^='book_toc_']");
-    var links = $('#region-main-settings-menu .action-menu.moodle-actionmenu .dropdown-menu .dropdown-item:nth-last-child(-n+5)');
-    console.log('links',links);
-    container.append('<br><br><div class="print_links"></div>');
-    links.each(function(index,element){
-    console.log(element);
-      container.find('.print_links').append($(element).children().clone());
-    });
-}
-{{/js}}
