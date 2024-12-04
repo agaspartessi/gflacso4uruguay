@@ -1321,12 +1321,6 @@ body.limitedwidth #page.drawers .main-inner,
     }
 }
 
-#page-wrapper #page #page-content {
-    align-content: center;
-    height: 100vh;
-    backdrop-filter: contrast(1.4);
-}
-
 .login-container {
     background-color: $flacso;
     box-shadow: none;
@@ -1338,7 +1332,6 @@ body.limitedwidth #page.drawers .main-inner,
     width: 100%;
     padding: 2rem;
     margin: 0;
-    height: 100%;
     text-align: center;
 
     .d-flex {
