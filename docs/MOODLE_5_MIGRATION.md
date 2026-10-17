@@ -1,6 +1,6 @@
 # Uruguay para Moodle 5.3
 
-17 de octubre de 2026. Rama `moodle-5.3`. Release `2.0.0-beta5`.
+17 de octubre de 2026. Rama `moodle-5.3`. Release `2.0.0-beta6`.
 
 Parte de `8ac9aef24d591129e3af0f720f569c94091c2dab` de Uruguay y adapta
 las correcciones de Académico hasta `354b41070bad5ffc31f0a624a87a8676af84025f`.
@@ -13,6 +13,8 @@ Esta actualización se aplica únicamente a la rama de Uruguay, sin fusionar `ma
   el menú del curso conserva la pestaña azul. Su área activa ocupa toda la
   altura de la barra, y los enlaces mantienen texto blanco sobre azul al pasar
   el mouse, incluso si el campus agrega reglas generales para enlaces.
+  El triángulo verde de la opción principal activa queda debajo de la etiqueta
+  al ocupar el enlace toda la altura del header.
   Se mantienen el foco de teclado y los menús desplegables de Moodle 5.3.
 - En cursos Tiles, el contenido y el encabezado vuelven al ancho limitado de
   Boost que utilizan las anclas de los cajones. Esto permite abrir cualquiera
@@ -71,7 +73,8 @@ se simulan. No se carga la configuración ni la base de datos de un campus.
 - Tiles: 128 combinaciones de viewport, cajones, vista de curso/sección y
   mosaico expandido, con la hoja de estilos del plugin cargada después del theme.
 - Navegación Moodle 5.3: cuatro anchos de escritorio con selección, hover,
-  contraste del texto normal y activo, altura de pestaña, tipografía, menú Más
+  contraste del texto normal y activo, altura de pestaña, posición del triángulo,
+  tipografía, menú Más
   y ausencia de desborde horizontal.
 - Login: cinco tamaños de pantalla, contraste, acceso externo y formulario largo.
 - Sintaxis PHP/JavaScript y `git diff --check`.
@@ -98,7 +101,7 @@ no verifican fuentes ni recursos remotos del campus.
 1. Descargar la rama `moodle-5.3` actualizada. La carpeta debe llamarse
    `gflacso4uruguay`, sin el sufijo de la rama.
 2. Sustituir el theme en `<moodle>/public/theme/gflacso4uruguay` en testing.
-3. Entrar en Administración del sitio > Notificaciones y registrar `2026101702`.
+3. Entrar en Administración del sitio > Notificaciones y registrar `2026101703`.
 4. Purgar todas las cachés y recargar el navegador con `Ctrl+F5`.
 5. Revisar Raw initial SCSS y Raw SCSS del campus: reglas antiguas de cajones,
    navbar o `.main-inner` podrían reintroducir desajustes por su prioridad final.

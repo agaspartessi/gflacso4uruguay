@@ -42,6 +42,12 @@ fs.writeFileSync(path.join(directory, 'navigation.html'), html);
         assert(primarySelected.fontSize >= 18 && secondarySelected.fontSize >= 18, `${width} typography`);
         assert.equal(primarySelected.radius, '0px', `${width} primary shape`);
         assert.equal(primarySelected.background, 'rgba(0, 0, 0, 0)', `${width} primary selected triangle`);
+        assert(primarySelected.height >= 61, `${width} primary tab fills navbar height`);
+        assert(await page.locator('.primary-navigation .mds-nav-pill--selected').evaluate(element => {
+            const labelBottom = element.querySelector('.mds-nav-pill__label').getBoundingClientRect().bottom;
+            const triangleHeight = parseFloat(getComputedStyle(element, '::after').borderBottomWidth);
+            return element.getBoundingClientRect().bottom - triangleHeight >= labelBottom + 2;
+        }), `${width} active triangle is below label`);
         assert.equal(secondarySelected.radius, '0px', `${width} secondary shape`);
         assert.notEqual(secondarySelected.background, 'rgba(0, 0, 0, 0)', `${width} secondary selected background`);
         assert(secondarySelected.height >= 59, `${width} secondary active area`);
