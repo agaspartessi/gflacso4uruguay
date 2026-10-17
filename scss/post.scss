@@ -880,24 +880,88 @@ code,
 }
 
 // Moodle 5.3 renders navigation with MDS pills instead of Bootstrap nav links.
-// Scope tokens to each pill so dropdown menus keep their own readable colours.
+// Restore Uruguay's larger navigation text and its original rectangular tabs.
+// Keep the MDS focus ring, overflow handling and dropdown semantics.
 .primary-navigation .navigation.primarynav-navbar .mds-nav-pill,
 .secondary-navigation .navigation.secondarynav-tabbar .mds-nav-pill {
-    --mds-font-family-base: #{$font-family-base};
-    --mds-text-default: #{$white};
-    --mds-bg-nav-pill-selected: #{$primary};
-    --mds-bg-nav-pill-hover: #{$primary-1};
-    --mds-bg-nav-pill-pressed: #{$primary};
-    --mds-bg-interactive-primary-default: #{$white};
+    --mds-font-family-base: #{$font-family-condensed};
     --mds-focus-default: #{$primary-2};
+
+    border-radius: 0;
+
+    .mds-nav-pill__label {
+        font-size: 1.125rem;
+        font-weight: 400;
+    }
+
+    .mds-nav-pill__indicator {
+        display: none;
+    }
 }
 
 .primary-navigation .navigation.primarynav-navbar .mds-nav-pill {
     --mds-text-subtle: #{$white};
+    --mds-text-default: #{$white};
+    --mds-bg-nav-pill-hover: #{rgba($white, 0.12)};
+    --mds-bg-nav-pill-pressed: #{rgba($white, 0.18)};
+
+    position: relative;
+    color: $white;
+
+    &.mds-nav-pill--selected,
+    &.mds-nav-pill--selected:visited,
+    &.mds-nav-pill--selected:hover {
+        background-color: transparent;
+        color: $white;
+    }
+
+    &.mds-nav-pill--selected::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: calc(50% - 0.55rem);
+        border-right: 0.55rem solid transparent;
+        border-left: 0.55rem solid transparent;
+        border-bottom: 0.7rem solid $secondary;
+    }
+
+    &:hover:not([aria-disabled=true]):not(.mds-nav-pill--selected) {
+        color: $white;
+    }
 }
 
 .secondary-navigation .navigation.secondarynav-tabbar .mds-nav-pill {
-    --mds-text-subtle: #{$gray-600};
+    --mds-text-subtle: #{$base};
+    --mds-text-default: #{$white};
+    --mds-bg-nav-pill-hover: #{rgba($primary, 0.1)};
+    --mds-bg-nav-pill-pressed: #{rgba($primary, 0.18)};
+
+    color: $base;
+    border-bottom: 4px solid transparent;
+
+    &.mds-nav-pill--selected,
+    &.mds-nav-pill--selected:visited,
+    &.active {
+        background-color: $primary;
+        color: $white;
+        border-bottom-color: $primary;
+    }
+
+    &.mds-nav-pill--selected:hover,
+    &.active:hover {
+        background-color: $primary-1;
+        border-bottom-color: $primary-1;
+        color: $white;
+    }
+
+    &.active::before {
+        display: none;
+    }
+
+    &:hover:not([aria-disabled=true]):not(.mds-nav-pill--selected):not(.active) {
+        color: $primary;
+        border-bottom-color: $primary-1;
+    }
 }
 
 /*#endregion*/
