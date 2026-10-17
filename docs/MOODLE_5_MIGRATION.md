@@ -1,6 +1,6 @@
 # Uruguay para Moodle 5.3
 
-16 de octubre de 2026. Rama `moodle-5.3`. Release `2.0.0-beta2`.
+17 de octubre de 2026. Rama `moodle-5.3`. Release `2.0.0-beta3`.
 
 Parte de `8ac9aef24d591129e3af0f720f569c94091c2dab` de Uruguay y adapta
 las correcciones de Académico hasta `354b41070bad5ffc31f0a624a87a8676af84025f`.
@@ -8,6 +8,11 @@ Esta actualización se aplica únicamente a la rama de Uruguay, sin fusionar `ma
 
 ## Cambios
 
+- En cursos Tiles, el contenido y el encabezado vuelven al ancho limitado de
+  Boost que utilizan las anclas de los cajones. Esto permite abrir cualquiera
+  de los dos cajones, o ambos, y expandir mosaicos sin tapar el contenido ni
+  desplazar un cajón fuera de pantalla. La regla sólo se aplica a la página
+  de curso Tiles; se conservan su paleta, tarjetas y demás estilos.
 - Los cajones heredan de Boost su altura dinámica, cabeceras, scroll,
   apertura/cierre, foco, preferencias y comportamiento móvil. Se retiran las
   posiciones absolutas, desplazamientos negativos, alturas y z-index antiguos.
@@ -57,6 +62,8 @@ se simulan. No se carga la configuración ni la base de datos de un campus.
   Verifica también que Raw SCSS no se duplique y respete el orden.
 - Cajones: 96 combinaciones de viewport, layout y estado; apertura/cierre,
   scroll interno, retorno del foco, ajuste móvil, footer y contraste del header.
+- Tiles: 128 combinaciones de viewport, cajones, vista de curso/sección y
+  mosaico expandido, con la hoja de estilos del plugin cargada después del theme.
 - Login: cinco tamaños de pantalla, contraste, acceso externo y formulario largo.
 - Sintaxis PHP/JavaScript y `git diff --check`.
 
@@ -67,6 +74,7 @@ php tools/check_compatibility.php /ruta/al/moodle /tmp/uruguay-css
 npm install --no-save playwright mustache
 npx playwright install chromium
 node tools/check_drawers.cjs /ruta/al/moodle /tmp/uruguay-css/moodle-default.css /tmp/uruguay-drawers
+node tools/check_tiles_drawers.cjs /tmp/uruguay-drawers /ruta/a/format/tiles/styles.css
 node tools/check_login.cjs /ruta/al/moodle /tmp/uruguay-css/moodle-default.css /tmp/uruguay-login
 ```
 
@@ -80,14 +88,16 @@ no verifican fuentes ni recursos remotos del campus.
 1. Descargar la rama `moodle-5.3` actualizada. La carpeta debe llamarse
    `gflacso4uruguay`, sin el sufijo de la rama.
 2. Sustituir el theme en `<moodle>/public/theme/gflacso4uruguay` en testing.
-3. Entrar en Administración del sitio > Notificaciones y registrar `2026101600`.
+3. Entrar en Administración del sitio > Notificaciones y registrar `2026101700`.
 4. Purgar todas las cachés y recargar el navegador con `Ctrl+F5`.
 5. Revisar Raw initial SCSS y Raw SCSS del campus: reglas antiguas de cajones,
    navbar o `.main-inner` podrían reintroducir desajustes por su prioridad final.
 6. Probar login, recuperación y autenticación externa/MFA si se usan; Tablero,
    Mis cursos y cursos representativos con los cajones cerrados/abiertos, edición
    de bloques, menús, calificaciones y actividades, en escritorio y celular.
-7. Comprobar formatos/plugins externos y roles estudiante, docente y administrador.
+7. En un curso Tiles real, abrir y cerrar el índice y los bloques, solos y
+   juntos; pulsar Expandir y volver, en pantalla ancha, tablet y celular.
+   Comprobar también otro formato de curso y los roles estudiante y docente.
 
 Estas pruebas aisladas no sustituyen la validación en el campus. La versión
 sigue BETA hasta esa revisión. El modo oscuro experimental no está validado

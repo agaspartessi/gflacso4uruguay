@@ -408,6 +408,20 @@ code,
 
 /*#region*///DRAWERS
 
+// Tiles removes Boost's limited content width on its multi-section page. Boost
+// anchors the drawers to that width, so the wider Tiles content runs underneath
+// them and can push the block drawer beyond the viewport after expansion.
+// Restore the same width used by Boost's drawer anchors for Tiles course pages.
+// The single-section view already uses this width; keep its header aligned too.
+@include media-breakpoint-up(md) {
+    body.format-tiles.limitedwidth.path-course-view {
+        #page.drawers .main-inner,
+        .header-maxwidth {
+            max-width: $course-content-maxwidth !important;
+        }
+    }
+}
+
 // Boost 5.3 owns drawer sizing, anchors, scrolling, stacking and transitions.
 // Keep only Uruguay's appearance here; inherit its templates and AMD modules.
 .drawer[data-region="fixed-drawer"] {

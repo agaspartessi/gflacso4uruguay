@@ -2,7 +2,7 @@
 
 Theme hijo de Boost para FLACSO Uruguay. Rama `moodle-5.3`.
 
-Versión **2.0.0-beta2** (`2026101600`), requiere Moodle y Boost **5.3**.
+Versión **2.0.0-beta3** (`2026101700`), requiere Moodle y Boost **5.3**.
 Actualiza cajones, navegación, login y carga SCSS, conservando la paleta,
 imágenes, footer institucional y estilos de contenidos de Uruguay.
 
