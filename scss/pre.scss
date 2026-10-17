@@ -187,3 +187,7 @@ $btn-border-radius-sm: 3px !default;
 
 // Navbar
 $navbar-dark-color: rgba($white, 0.6) !default;
+
+// Shared Boost geometry: layout, drawer anchors and controls use these values.
+$navbar-height: 62px !default;
+$course-content-maxwidth: 1000px !default;
