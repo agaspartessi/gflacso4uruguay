@@ -902,7 +902,7 @@ code,
 .primary-navigation .navigation.primarynav-navbar .mds-nav-pill {
     --mds-text-subtle: #{$white};
     --mds-text-default: #{$white};
-    --mds-bg-nav-pill-hover: #{rgba($white, 0.12)};
+    --mds-bg-nav-pill-hover: #{rgba($white, 0.18)};
     --mds-bg-nav-pill-pressed: #{rgba($white, 0.18)};
 
     position: relative;
@@ -928,15 +928,24 @@ code,
     &:hover:not([aria-disabled=true]):not(.mds-nav-pill--selected) {
         color: $white;
     }
+
+    // Some campus link rules colour the nested label separately on hover.
+    &:hover .mds-nav-pill__label,
+    &.mds-nav-pill--selected .mds-nav-pill__label {
+        color: $white !important;
+    }
 }
 
 .secondary-navigation .navigation.secondarynav-tabbar .mds-nav-pill {
     --mds-text-subtle: #{$base};
     --mds-text-default: #{$white};
-    --mds-bg-nav-pill-hover: #{rgba($primary, 0.1)};
-    --mds-bg-nav-pill-pressed: #{rgba($primary, 0.18)};
+    --mds-bg-nav-pill-hover: #{$primary};
+    --mds-bg-nav-pill-pressed: #{$primary-1};
 
     color: $base;
+    height: 100%;
+    padding-inline: 1rem;
+    justify-content: center;
     border-bottom: 4px solid transparent;
 
     &.mds-nav-pill--selected,
@@ -959,8 +968,15 @@ code,
     }
 
     &:hover:not([aria-disabled=true]):not(.mds-nav-pill--selected):not(.active) {
-        color: $primary;
-        border-bottom-color: $primary-1;
+        color: $white;
+        background-color: $primary;
+        border-bottom-color: $primary;
+    }
+
+    &:hover .mds-nav-pill__label,
+    &.mds-nav-pill--selected .mds-nav-pill__label,
+    &.active .mds-nav-pill__label {
+        color: $white !important;
     }
 }
 
