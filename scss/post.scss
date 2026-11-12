@@ -3183,57 +3183,50 @@ ul.onetopic {
     }
 }
 
+// The current Onetopic template renders these links directly inside
+// #tabs-tree-start. Use its stable markup so Boost's nav-tab defaults cannot
+// repaint the category colours. Onetopic's active-tab custom rules still win.
+#tabs-tree-start .tabs-wrapper ul.format_onetopic-tabs > li > a.nav-link {
+    color: $black !important;
+    background-color: var(--color-area-3) !important;
+    border: 0 !important;
+    border-top: 8px solid var(--color-area-4) !important;
+    border-radius: 8px 8px 0 0;
+    padding: .5rem 1rem;
+}
+
+#tabs-tree-start .tabs-wrapper ul.format_onetopic-tabs > li > a.nav-link:hover,
+#tabs-tree-start .tabs-wrapper ul.format_onetopic-tabs > li > a.nav-link:focus-visible,
+#tabs-tree-start .tabs-wrapper ul.format_onetopic-tabs > li > a.nav-link.active {
+    color: $black !important;
+    background-color: var(--color-area-2) !important;
+    border-top-color: var(--color-area) !important;
+}
+
+#tabs-tree-start .tabs-wrapper ul.format_onetopic-tabs > li.disabled > a.nav-link,
+#tabs-tree-start .tabs-wrapper ul.format_onetopic-tabs > li.dimmed > a.nav-link {
+    color: $gray-600 !important;
+    opacity: .7;
+}
+
+#tabs-tree-start .onetopic-tab-body ul.format_onetopic-tabs > li > a.nav-link {
+    color: $black !important;
+    background-color: var(--color-area-3) !important;
+    border: 0 !important;
+    border-bottom: 8px solid var(--color-area-4) !important;
+    border-radius: 0 0 8px 8px;
+}
+
+#tabs-tree-start .onetopic-tab-body ul.format_onetopic-tabs > li > a.nav-link:hover,
+#tabs-tree-start .onetopic-tab-body ul.format_onetopic-tabs > li > a.nav-link:focus-visible,
+#tabs-tree-start .onetopic-tab-body ul.format_onetopic-tabs > li > a.nav-link.active {
+    background-color: var(--color-area-2) !important;
+    border-bottom-color: var(--color-area) !important;
+}
+
 /*#endregion*/
 
 /*#region*///Formato Mosaicos
-
-// Onetopic also renders plain nav-tabs in recent releases. Style those tabs
-// with the same Uruguay hierarchy, leaving per-tab inline colours from the
-// course/plugin configuration free to take precedence when they exist.
-.format-onetopic #tabs-tree-start {
-    > .tabs-wrapper .nav-tabs > .nav-item > .nav-link {
-        display: block;
-        border: 0;
-        border-top: 8px solid var(--color-area-4);
-        border-radius: 8px 8px 0 0;
-        background-color: var(--color-area-3);
-        color: $black;
-        padding: .6rem 1rem;
-        margin: .5rem 1px 0 0;
-
-        &:hover,
-        &:focus-visible,
-        &.active {
-            border-top-color: var(--color-area);
-            background-color: var(--color-area-2);
-            color: $black;
-        }
-    }
-
-    .onetopic-tab-body .nav-tabs > .nav-item > .nav-link {
-        display: block;
-        border: 0;
-        border-bottom: 8px solid var(--color-area-4);
-        border-radius: 0 0 8px 8px;
-        background-color: var(--color-area-3);
-        color: $black;
-        padding: .6rem 1rem;
-        margin-right: 1px;
-
-        &:hover,
-        &:focus-visible,
-        &.active {
-            border-bottom-color: var(--color-area);
-            background-color: var(--color-area-2);
-            color: $black;
-        }
-    }
-
-    .nav-tabs > .nav-item > .nav-link.disabled {
-        color: $gray-600;
-        opacity: .7;
-    }
-}
 
 .tile-content {
     width: 100%;
