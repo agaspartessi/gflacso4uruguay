@@ -2001,7 +2001,9 @@ li[data-key="home"] {
     padding: 0;
 }
 
-.my-3[data-for="sectioninfo"]:not(:has(p, span, h1, h2, h3, h4, h5, h6, img, div)) {
+// Keep heading selectors out of scssphp's Bootstrap @extend processing inside :has().
+// Lowercase h1..h6 corrupts the compiled selector and can swallow later rules.
+.my-3[data-for="sectioninfo"]:not(:has(p, span, H1, H2, H3, H4, H5, H6, img, div)) {
     border: none;
     padding: 0;
 }
@@ -2447,7 +2449,7 @@ ul.onetopic {
         border: none;
     }
 
-    &:not(:has(p, span, h1, h2, h3, h4, h5, h6, img, div)) {
+    &:not(:has(p, span, H1, H2, H3, H4, H5, H6, img, div)) {
         border: none;
         padding: 0;
     }
@@ -3177,7 +3179,7 @@ ul.onetopic {
     border-radius: 0 0 .3rem .3rem;
     padding: 1em;
 
-    &:not(:has(p, span, h1, h2, h3, h4, h5, h6, img, div)) {
+    &:not(:has(p, span, H1, H2, H3, H4, H5, H6, img, div)) {
         border: none;
         padding: 0;
     }
