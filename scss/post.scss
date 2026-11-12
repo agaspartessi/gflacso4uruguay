@@ -7497,10 +7497,12 @@ table.linea_de_tiempo {
 
 // Moodle 5.3 renders an empty sectioninfo wrapper for the general section.
 // The old 4.1 frame makes that placeholder look like an empty activity.
-.path-course-view .course-content .my-3[data-for="sectioninfo"] {
-    border: 0;
-    padding: 0;
-    min-height: 0;
+.format-onetopic .single-section.general-section .my-3[data-for="sectioninfo"],
+.format-onetopic .course-content .my-3[data-for="sectioninfo"]:not(:has(.no-overflow)) {
+    border: 0 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
 }
 
 // Restore the clean course canvas while leaving authored activity content intact.
@@ -7518,7 +7520,7 @@ table.linea_de_tiempo {
 
 // The 4.1 tabs used category colours. Moodle 5's nav-link styles and the
 // format's generated rules otherwise override those colours.
-.format-onetopic .tabs-wrapper .format_onetopic-tabs .nav-link {
+#tabs-tree-start .tabs-wrapper ul.format_onetopic-tabs > li > a.nav-link {
     color: $black !important;
     background-color: var(--color-area-3) !important;
     border: 0 !important;
@@ -7527,9 +7529,9 @@ table.linea_de_tiempo {
     padding: .5rem 1rem;
 }
 
-.format-onetopic .tabs-wrapper .format_onetopic-tabs .nav-link:hover,
-.format-onetopic .tabs-wrapper .format_onetopic-tabs .nav-link:focus,
-.format-onetopic .tabs-wrapper .format_onetopic-tabs .nav-link.active {
+#tabs-tree-start .tabs-wrapper ul.format_onetopic-tabs > li > a.nav-link:hover,
+#tabs-tree-start .tabs-wrapper ul.format_onetopic-tabs > li > a.nav-link:focus,
+#tabs-tree-start .tabs-wrapper ul.format_onetopic-tabs > li > a.nav-link.active {
     color: $black !important;
     background-color: var(--color-area-2) !important;
     border-top-color: var(--color-area) !important;
