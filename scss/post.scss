@@ -344,6 +344,21 @@ code,
     border-radius: 0 0 .6rem .6rem;
 }
 
+// Course titles in Boost 5.3 use h1.h2. Keep the former Uruguay heading
+// typography and underline instead of the smaller boxed heading appearance.
+.path-course-view #page-header h1.h2 {
+    background: transparent;
+    border: 0;
+    border-bottom: 8px solid var(--color-area);
+    border-radius: 0 0 .6rem .6rem;
+    color: $black;
+    font-size: clamp(2rem, 3vw, 3.25rem);
+    font-weight: 700 !important;
+    line-height: 1.12;
+    padding: 0 0 .15em;
+    text-align: left !important;
+}
+
 .instancename {
     font-size: 1.25em;
     line-height: 1.2;
@@ -375,6 +390,17 @@ code,
     padding-bottom: 2em;
     font-family: $font-family-sans-serif;
     font-weight: 400;
+}
+
+.path-course-view #page.drawers > .main-inner,
+.path-course-view #page.drawers #page-content {
+    background-color: $white;
+}
+
+.path-course-view .secondary-navigation {
+    padding-bottom: 0;
+    border-bottom: 1px solid $gray-300;
+    margin-bottom: 2rem;
 }
 
 .secondary-navigation a {
@@ -1972,6 +1998,21 @@ li[data-key="home"] {
     padding: 0;
 }
 
+// Moodle 5.3 leaves empty section-summary wrappers in some course formats.
+// They should not inherit the large bordered description box.
+.path-course-view .my-3[data-for="sectioninfo"]:not(:has(.summarytext, p, img, video, iframe, a)) {
+    border: 0;
+    padding: 0;
+    margin-block: 0 !important;
+    min-height: 0;
+}
+
+.path-course-view .description .course-description-item:has(.description-inner:empty) {
+    border: 0;
+    padding: 0;
+    min-height: 0;
+}
+
 
 .description .course-description-item:first-child {
     margin-top: 0;
@@ -1994,11 +2035,11 @@ li[data-key="home"] {
     overflow: hidden;
     text-overflow: ellipsis;
     border: none !important;
-    color: $black !important;
+    color: $black;
     border-radius: 8px 8px 0 0;
     transition: 0.15s ease-in-out;
     border-top: 8px solid var(--color-area-4) !important;
-    background: var(--color-area-3) !important;
+    background: var(--color-area-3);
     border-right: 1px solid $white !important;
     margin-top: 1rem;
     margin-bottom: 0;
@@ -2006,11 +2047,11 @@ li[data-key="home"] {
     &:hover,
     &:focus,
     &.active {
-        color: $black !important;
+        color: $black;
         font-weight: 400;
         padding-bottom: 20px !important;
         border-top: 8px solid var(--color-area) !important;
-        background: var(--color-area-2) !important;
+        background: var(--color-area-2);
         margin-top: 4px;
         box-shadow: none !important;
     }
@@ -2047,11 +2088,11 @@ li[data-key="home"] {
 
 .format-onetopic .verticaltabs>.tabs-wrapper .nav-item .nav-link {
     margin-block: 0 !important;
-    color: $black !important;
+    color: $black;
     border-radius: 8px 0 0 8px;
     border-top: none !important;
     border-left: 8px solid var(--color-area-4) !important;
-    background: var(--color-area-3) !important;
+    background: var(--color-area-3);
     border-bottom: 1px solid $white !important;
     margin-bottom: 0;
 }
@@ -2067,12 +2108,12 @@ li[data-key="home"] {
                     &.active,
                     .nav-item.show & {
                         border-right: none;
-                        color: $black !important;
+                        color: $black;
                         font-weight: 400;
                         border-bottom: none !important;
                         margin-bottom: 0;
                         border-left: 8px solid var(--color-area) !important;
-                        background: var(--color-area-2) !important;                
+                        background: var(--color-area-2);
                         border-bottom: 1px solid $white !important;
                         margin-left: -16px;
                         width: calc(100% + 16px) !important;
@@ -2111,10 +2152,10 @@ li[data-key="home"] {
         border: none !important;
         border-radius: 0 0 10px 10px;
         border-bottom: 8px solid var(--color-area-4) !important;
-        background: var(--color-area-3) !important;
+        background: var(--color-area-3);
         border-right: 1px solid $white !important;
         padding: 0.5rem 1rem;
-        color: $black !important;
+        color: $black;
         transition: 0.15s ease-in-out;
         margin-top: 0;
         margin-bottom: 5px;
@@ -2122,12 +2163,12 @@ li[data-key="home"] {
         &:hover,
         &:focus,
         &.active {
-            color: $black !important;
+            color: $black;
             border: none !important;
             margin: 0 !important;
             border-radius: 0 0 10px 10px;
             border-bottom: 8px solid var(--color-area) !important;
-            background: var(--color-area-2) !important;
+            background: var(--color-area-2);
             margin-bottom: 8px !important;            
             border-right: 1px solid $white !important;
             font-weight: 400;
@@ -2182,7 +2223,7 @@ li[data-key="home"] {
         border-radius: 8px 8px 0 0;
         transition: 0.15s ease-in-out;
         border-top: 8px solid var(--color-area-4) !important;
-        background: var(--color-area-3) !important;
+        background: var(--color-area-3);
         border-right: 1px solid $white !important;
         margin-top: 1rem;
         margin-bottom: 0;
@@ -2190,12 +2231,12 @@ li[data-key="home"] {
         &:hover,
         &:focus,
         &.active {
-            color: $black !important;
+            color: $black;
             font-weight: 400;
             padding-top: .5rem;
             padding-bottom: 20px !important;
             border-top: 8px solid var(--color-area) !important;
-            background: var(--color-area-2) !important;
+            background: var(--color-area-2);
             margin-bottom: 0 !important;            
             margin-top: 4px !important;
             border-bottom: none !important;
@@ -3128,6 +3169,54 @@ ul.onetopic {
 
 /*#region*///Formato Mosaicos
 
+// Onetopic also renders plain nav-tabs in recent releases. Style those tabs
+// with the same Uruguay hierarchy, leaving per-tab inline colours from the
+// course/plugin configuration free to take precedence when they exist.
+.format-onetopic #tabs-tree-start {
+    > .tabs-wrapper .nav-tabs > .nav-item > .nav-link {
+        display: block;
+        border: 0;
+        border-top: 8px solid var(--color-area-4);
+        border-radius: 8px 8px 0 0;
+        background-color: var(--color-area-3);
+        color: $black;
+        padding: .6rem 1rem;
+        margin: .5rem 1px 0 0;
+
+        &:hover,
+        &:focus-visible,
+        &.active {
+            border-top-color: var(--color-area);
+            background-color: var(--color-area-2);
+            color: $black;
+        }
+    }
+
+    .onetopic-tab-body .nav-tabs > .nav-item > .nav-link {
+        display: block;
+        border: 0;
+        border-bottom: 8px solid var(--color-area-4);
+        border-radius: 0 0 8px 8px;
+        background-color: var(--color-area-3);
+        color: $black;
+        padding: .6rem 1rem;
+        margin-right: 1px;
+
+        &:hover,
+        &:focus-visible,
+        &.active {
+            border-bottom-color: var(--color-area);
+            background-color: var(--color-area-2);
+            color: $black;
+        }
+    }
+
+    .nav-tabs > .nav-item > .nav-link.disabled {
+        color: $gray-600;
+        opacity: .7;
+    }
+}
+
 .tile-content {
     width: 100%;
 }
@@ -3332,6 +3421,30 @@ li.activity.subtile:not(.unclickable):hover {
 
     &:hover .photo-tile-text h3 {
         background: var(--color-area-6) !important;
+    }
+}
+
+// Match the photo-tile markup used by current Tiles releases as well as the
+// older .tile-clickable variant. The title belongs on the photograph, with
+// the category accent along the left edge rather than a solid title badge.
+.format-tiles ul#multi_section_tiles > li.tile.phototile {
+    border-top: 0 !important;
+    border-left: 10px solid var(--color-area) !important;
+
+    &:hover {
+        border-left-color: var(--color-area-4) !important;
+    }
+
+    .photo-tile-text {
+        background: transparent !important;
+        width: 100%;
+
+        h3 {
+            background: transparent !important;
+            color: $white !important;
+            padding: .4em .55em !important;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, .9), 0 0 8px rgba(0, 0, 0, .6);
+        }
     }
 }
 
@@ -7354,6 +7467,28 @@ table.linea_de_tiempo {
 .videoresponsive {
     overflow: hidden !important;
     margin-bottom: 2em !important;
+}
+
+// Course media sometimes retains a 500px width attribute from older content.
+// Fill the available content column while respecting narrower drawer layouts.
+.path-course-view .course-content {
+    .videoresponsive,
+    .mediaplugin {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .videoresponsive iframe,
+    iframe[src*="youtube.com/embed/"],
+    iframe[src*="youtube-nocookie.com/embed/"],
+    iframe[src*="player.vimeo.com/video/"],
+    .mediaplugin video {
+        display: block;
+        width: 100% !important;
+        max-width: 100%;
+        height: auto !important;
+        aspect-ratio: 16 / 9;
+    }
 }
 
 .card .videoresponsive {
