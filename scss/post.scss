@@ -7495,6 +7495,91 @@ table.linea_de_tiempo {
     margin-bottom: 0 !important;
 }
 
+// Moodle 5.3 renders an empty sectioninfo wrapper for the general section.
+// The old 4.1 frame makes that placeholder look like an empty activity.
+.path-course-view .course-content .my-3[data-for="sectioninfo"] {
+    border: 0;
+    padding: 0;
+    min-height: 0;
+}
+
+// Restore the clean course canvas while leaving authored activity content intact.
+.path-course-view .course-content,
+.path-course-view .course-content .course-section,
+.path-course-view .course-content .activity-item:not(.activityinline) {
+    background-color: $white;
+}
+
+.path-course-view .course-content .activity-item:not(.activityinline) {
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+// The 4.1 tabs used category colours. Moodle 5's nav-link styles and the
+// format's generated rules otherwise override those colours.
+.format-onetopic .tabs-wrapper .format_onetopic-tabs .nav-link {
+    color: $black !important;
+    background-color: var(--color-area-3) !important;
+    border: 0 !important;
+    border-top: 8px solid var(--color-area-4) !important;
+    border-radius: 8px 8px 0 0;
+    padding: .5rem 1rem;
+}
+
+.format-onetopic .tabs-wrapper .format_onetopic-tabs .nav-link:hover,
+.format-onetopic .tabs-wrapper .format_onetopic-tabs .nav-link:focus,
+.format-onetopic .tabs-wrapper .format_onetopic-tabs .nav-link.active {
+    color: $black !important;
+    background-color: var(--color-area-2) !important;
+    border-top-color: var(--color-area) !important;
+}
+
+.format-onetopic .onetopic-tab-body .format_onetopic-tabs .nav-link {
+    border-top: 0 !important;
+    border-bottom: 8px solid var(--color-area-4) !important;
+    border-radius: 0 0 10px 10px;
+}
+
+.format-onetopic .onetopic-tab-body .format_onetopic-tabs .nav-link:hover,
+.format-onetopic .onetopic-tab-body .format_onetopic-tabs .nav-link:focus,
+.format-onetopic .onetopic-tab-body .format_onetopic-tabs .nav-link.active {
+    border-bottom-color: var(--color-area) !important;
+}
+
+// Photo tiles are now rendered directly as li.tile by the current Tiles
+// template; do not paint a rectangular badge over the photograph.
+.format-tiles li.tile.phototile {
+    border-top: 0 !important;
+    border-left: 10px solid var(--color-area) !important;
+}
+
+.format-tiles li.tile.phototile .photo-tile-text,
+.format-tiles li.tile.phototile .photo-tile-text h3 {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.format-tiles li.tile.phototile .photo-tile-text h3 {
+    color: $white !important;
+    width: auto !important;
+    display: inline !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, .9);
+}
+
+// VideoJS retains the width from old embedded content as an inline style.
+.path-course-view .course-content .mediaplugin_videojs,
+.path-course-view .course-content .video-js,
+.path-course-view .course-content .video-js video {
+    width: 100% !important;
+    max-width: 100%;
+}
+
+.path-course-view .course-content .video-js {
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+}
+
 /*#endregion*/
 
 /*#region*/// tarjetas en bloque lateral
