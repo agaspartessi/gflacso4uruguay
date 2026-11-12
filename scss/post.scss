@@ -3224,6 +3224,14 @@ ul.onetopic {
     border-bottom-color: var(--color-area) !important;
 }
 
+@media (max-width: 767.98px) {
+    #tabs-tree-start .tabs-wrapper ul.format_onetopic-tabs > li > a.nav-link,
+    #tabs-tree-start .onetopic-tab-body ul.format_onetopic-tabs > li > a.nav-link {
+        border: 0 !important;
+        border-right: 3px solid $white !important;
+    }
+}
+
 /*#endregion*/
 
 /*#region*///Formato Mosaicos
