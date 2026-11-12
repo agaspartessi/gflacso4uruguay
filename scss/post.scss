@@ -1380,6 +1380,84 @@ form#login {
     width: 100%;
 }
 
+// Restore the compact 4.1 login composition while keeping Moodle 5.3's
+// native form, token, errors and alternate authentication controls intact.
+#page-login-index .login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > [role="main"] {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .loginform {
+        width: 100%;
+        max-width: 486px;
+        flex-wrap: nowrap;
+    }
+
+    #loginlogo {
+        width: 100%;
+        margin-bottom: 5rem !important;
+    }
+
+    .loginform > h1,
+    .loginform > p.text-muted,
+    .login-form label {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+
+    .login-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .login-input-icon {
+        display: none;
+    }
+
+    .login-input-wrapper .form-control {
+        padding-left: 1.25rem;
+    }
+
+    .login-form-username,
+    .login-form-password {
+        margin-bottom: 1.25rem !important;
+    }
+
+    .login-form-submit {
+        order: 1;
+        margin-bottom: 0 !important;
+    }
+
+    .login-form .text-end {
+        order: 2;
+        text-align: center !important;
+        margin: 0.75rem 0 0 !important;
+    }
+
+    .login-cookiesnotice {
+        margin-top: 1.75rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    #page-login-index .login-container #loginlogo {
+        margin-bottom: 2rem !important;
+    }
+}
+
 /*#endregion*/
 
 /*#region*///FOOTER
