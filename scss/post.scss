@@ -1986,6 +1986,14 @@ li[data-key="home"] {
     padding: 3em;
     border-radius: 0.3rem;
     border: 2px solid var(--color-area);
+
+    // Onetopic renders a sectioninfo element even when there is no summary.
+    // Match the empty-content guard already used by the 5.3 Coop theme.
+    &:not(:has(.no-overflow)) {
+        border: none !important;
+        padding: 0 !important;
+        margin-top: 0 !important;
+    }
 }
 
 .my-3[data-for="sectioninfo"] .no-overflow {
@@ -1996,6 +2004,15 @@ li[data-key="home"] {
 .my-3[data-for="sectioninfo"]:not(:has(p, span, h1, h2, h3, h4, h5, h6, img, div)) {
     border: none;
     padding: 0;
+}
+
+// Onetopic places section information in this wrapper even for blank summaries.
+// Its 4.1 presentation did not frame that wrapper, including when it has text.
+.format-onetopic .my-3[data-for="sectioninfo"] {
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
 }
 
 // Moodle 5.3 leaves empty section-summary wrappers in some course formats.
@@ -2035,11 +2052,11 @@ li[data-key="home"] {
     overflow: hidden;
     text-overflow: ellipsis;
     border: none !important;
-    color: $black;
+    color: $black !important;
     border-radius: 8px 8px 0 0;
     transition: 0.15s ease-in-out;
     border-top: 8px solid var(--color-area-4) !important;
-    background: var(--color-area-3);
+    background: var(--color-area-3) !important;
     border-right: 1px solid $white !important;
     margin-top: 1rem;
     margin-bottom: 0;
@@ -2047,11 +2064,11 @@ li[data-key="home"] {
     &:hover,
     &:focus,
     &.active {
-        color: $black;
+        color: $black !important;
         font-weight: 400;
         padding-bottom: 20px !important;
         border-top: 8px solid var(--color-area) !important;
-        background: var(--color-area-2);
+        background: var(--color-area-2) !important;
         margin-top: 4px;
         box-shadow: none !important;
     }
@@ -2077,6 +2094,7 @@ li[data-key="home"] {
     margin: 0 !important;
     padding: 0 !important;
     background: none !important;
+    border: none !important;
 }
 
 .format-onetopic .verticaltabs>.tabs-wrapper {
@@ -3393,8 +3411,16 @@ li.activity.subtile:not(.unclickable):hover {
 
 .format-tiles .course-content ul.tiles .tile.phototile .photo-tile-text h3 {
     margin: 0;
-    background: var(--color-area) !important;
-    border-radius: 0 0 5px 0;
+    background: transparent !important;
+    color: $white !important;
+    width: auto !important;
+    display: inline !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, .9);
+    border-radius: 0;
+}
+
+.format-tiles .course-content ul.tiles .tile.phototile .photo-tile-text {
+    background: transparent !important;
 }
 
 .format-tiles .course-content ul.tiles .tile.phototile.tilestyle-1,
@@ -3416,11 +3442,11 @@ li.activity.subtile:not(.unclickable):hover {
 
 .format-tiles .course-content ul.tiles .tile-clickable.phototile {
     .photo-tile-text h3 {
-        background: var(--color-area-5) !important;
+        background: transparent !important;
     }
 
     &:hover .photo-tile-text h3 {
-        background: var(--color-area-6) !important;
+        background: rgba(0, 0, 0, .3) !important;
     }
 }
 
@@ -7495,16 +7521,6 @@ table.linea_de_tiempo {
     margin-bottom: 0 !important;
 }
 
-// Moodle 5.3 renders an empty sectioninfo wrapper for the general section.
-// The old 4.1 frame makes that placeholder look like an empty activity.
-.format-onetopic .single-section.general-section .my-3[data-for="sectioninfo"],
-.format-onetopic .course-content .my-3[data-for="sectioninfo"]:not(:has(.no-overflow)) {
-    border: 0 !important;
-    padding: 0 !important;
-    min-height: 0 !important;
-    margin: 0 !important;
-}
-
 // Restore the clean course canvas while leaving authored activity content intact.
 .path-course-view .course-content,
 .path-course-view .course-content .course-section,
@@ -7516,57 +7532,6 @@ table.linea_de_tiempo {
     border: 0;
     border-radius: 0;
     box-shadow: none;
-}
-
-// The 4.1 tabs used category colours. Moodle 5's nav-link styles and the
-// format's generated rules otherwise override those colours.
-#tabs-tree-start .tabs-wrapper ul.format_onetopic-tabs > li > a.nav-link {
-    color: $black !important;
-    background-color: var(--color-area-3) !important;
-    border: 0 !important;
-    border-top: 8px solid var(--color-area-4) !important;
-    border-radius: 8px 8px 0 0;
-    padding: .5rem 1rem;
-}
-
-#tabs-tree-start .tabs-wrapper ul.format_onetopic-tabs > li > a.nav-link:hover,
-#tabs-tree-start .tabs-wrapper ul.format_onetopic-tabs > li > a.nav-link:focus,
-#tabs-tree-start .tabs-wrapper ul.format_onetopic-tabs > li > a.nav-link.active {
-    color: $black !important;
-    background-color: var(--color-area-2) !important;
-    border-top-color: var(--color-area) !important;
-}
-
-.format-onetopic .onetopic-tab-body .format_onetopic-tabs .nav-link {
-    border-top: 0 !important;
-    border-bottom: 8px solid var(--color-area-4) !important;
-    border-radius: 0 0 10px 10px;
-}
-
-.format-onetopic .onetopic-tab-body .format_onetopic-tabs .nav-link:hover,
-.format-onetopic .onetopic-tab-body .format_onetopic-tabs .nav-link:focus,
-.format-onetopic .onetopic-tab-body .format_onetopic-tabs .nav-link.active {
-    border-bottom-color: var(--color-area) !important;
-}
-
-// Photo tiles are now rendered directly as li.tile by the current Tiles
-// template; do not paint a rectangular badge over the photograph.
-.format-tiles li.tile.phototile {
-    border-top: 0 !important;
-    border-left: 10px solid var(--color-area) !important;
-}
-
-.format-tiles li.tile.phototile .photo-tile-text,
-.format-tiles li.tile.phototile .photo-tile-text h3 {
-    background: transparent !important;
-    box-shadow: none !important;
-}
-
-.format-tiles li.tile.phototile .photo-tile-text h3 {
-    color: $white !important;
-    width: auto !important;
-    display: inline !important;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, .9);
 }
 
 // VideoJS retains the width from old embedded content as an inline style.
