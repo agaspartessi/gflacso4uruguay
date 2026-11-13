@@ -405,8 +405,10 @@ body.path-mod #region-main {
     background-color: $white !important;
 }
 
-// The assignment renders its own heading below the activity navigation.
-#page-mod-assign-view #page-header .page-header-headings {
+// Module view pages render their heading again inside the activity content.
+// Retain that heading and the breadcrumb; hide only Boost's duplicate above
+// the secondary navigation, leaving edit and grading screens alone.
+body.path-mod[id$="-view"] #page-header .page-header-headings {
     display: none;
 }
 
