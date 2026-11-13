@@ -397,18 +397,17 @@ code,
     background-color: $white;
 }
 
-// The assignment renders its own heading below the activity navigation.
-// Avoid repeating it in Boost's page header and keep the outer canvas white.
-#page-mod-assign-view {
-    #page-header .page-header-headings {
-        display: none;
-    }
+// Keep the outer canvas white on every activity page, including grading views.
+// Leave each activity's own panels and authored content untouched.
+body.path-mod #page.drawers > .main-inner,
+body.path-mod #page.drawers #page-content,
+body.path-mod #region-main {
+    background-color: $white !important;
+}
 
-    #page.drawers > .main-inner,
-    #page.drawers #page-content,
-    #region-main {
-        background-color: $white !important;
-    }
+// The assignment renders its own heading below the activity navigation.
+#page-mod-assign-view #page-header .page-header-headings {
+    display: none;
 }
 
 .path-course-view .secondary-navigation {
