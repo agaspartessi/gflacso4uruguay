@@ -3295,6 +3295,61 @@ ul.onetopic {
     }
 }
 
+// OneTopic 5.3 replaces the primary tabs with a collapsed "Temas" menu at
+// 600px. Keep the course's three-column tab layout used on small screens.
+@media (max-width: 600px) {
+    .format-onetopic #tabs-tree-start > .tabs-wrapper,
+    .format-onetopic #tabs-tree-start.verticaltabs > .tabs-wrapper {
+        position: relative;
+        top: auto;
+        display: block;
+        margin: 0;
+        padding: 0;
+        background: transparent !important;
+    }
+
+    .format-onetopic #tabs-tree-start .tabs-menu-overlay {
+        display: none;
+    }
+
+    .format-onetopic #tabs-tree-start > .tabs-wrapper > ul.format_onetopic-tabs,
+    .format-onetopic #tabs-tree-start.verticaltabs > .tabs-wrapper > ul.format_onetopic-tabs {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        max-height: none;
+        overflow: visible;
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .format-onetopic #tabs-tree-start > .tabs-wrapper > ul.format_onetopic-tabs > li.nav-item {
+        flex: 0 0 33.333%;
+        width: 33.333%;
+        max-width: 33.333%;
+        margin: 0 !important;
+    }
+
+    .format-onetopic #tabs-tree-start > .tabs-wrapper > ul.format_onetopic-tabs > li.nav-item > a.nav-link {
+        width: 100%;
+        max-width: none;
+        text-align: left;
+        white-space: nowrap;
+    }
+
+    .format-onetopic #tabs-tree-start .onetopic-tab-body > ul.format_onetopic-tabs {
+        position: relative;
+        top: auto;
+        max-height: none;
+        overflow: visible;
+        margin-inline: 0;
+    }
+}
+
 /*#endregion*/
 
 /*#region*///Formato Mosaicos
