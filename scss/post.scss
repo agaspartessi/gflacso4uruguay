@@ -397,6 +397,20 @@ code,
     background-color: $white;
 }
 
+// The assignment renders its own heading below the activity navigation.
+// Avoid repeating it in Boost's page header and keep the outer canvas white.
+#page-mod-assign-view {
+    #page-header .page-header-headings {
+        display: none;
+    }
+
+    #page.drawers > .main-inner,
+    #page.drawers #page-content,
+    #region-main {
+        background-color: $white !important;
+    }
+}
+
 .path-course-view .secondary-navigation {
     padding-bottom: 0;
     border-bottom: 1px solid $gray-300;
