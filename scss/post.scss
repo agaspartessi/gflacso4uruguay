@@ -7570,6 +7570,28 @@ table.linea_de_tiempo {
     aspect-ratio: 16 / 9;
 }
 
+// The 5.3 Boost surfaces add grey panels around Onetopic's course content.
+// Keep authored alerts, section headings and the coloured Onetopic tabs intact.
+body.path-course-view .secondary-navigation,
+body.path-course-view .secondary-navigation .navigation.secondarynav-tabbar {
+    background: transparent !important;
+    border: 0;
+}
+
+body.format-onetopic.path-course-view .course-content-header,
+body.format-onetopic.path-course-view .single-section,
+body.format-onetopic.path-course-view ul.onetopic,
+body.format-onetopic.path-course-view .course-section:not([style]),
+body.format-onetopic.path-course-view .activity-item:not([style]) {
+    background-color: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+body.format-onetopic.path-course-view .activity-item:not([style]) {
+    border-radius: 0;
+}
+
 /*#endregion*/
 
 /*#region*/// tarjetas en bloque lateral
