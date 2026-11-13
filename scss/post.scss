@@ -557,6 +557,22 @@ code,
     }
 }
 
+// Activity pages show a fixed breadcrumb below the navbar. Move both drawer
+// panels and their closed-state controls below that strip on desktop.
+@include media-breakpoint-up(md) {
+    #page-wrapper:has(.breadcrumb:not(:empty)) {
+        .drawer[data-region="fixed-drawer"] {
+            top: 100px;
+            height: calc(100vh - 100px);
+            max-height: calc(100vh - 100px);
+        }
+
+        #page.drawers .drawer-toggles .drawer-toggler {
+            top: 110px;
+        }
+    }
+}
+
 .drawer[data-region="fixed-drawer"] .drawerheader .drawertoggle img.icon {
     filter: brightness(0) invert(1);
 }
