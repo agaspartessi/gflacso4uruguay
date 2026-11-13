@@ -1187,6 +1187,16 @@ body.path-mod[id$="-view"] #page-header .page-header-headings {
     }
 }
 
+// Forum pages can render an activity header with no visible description.
+// Keep its content available while avoiding an empty padded panel.
+#page-mod-forum-view .activity-header {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    padding: 0;
+}
+
 /*#endregion*/
 
 /*#region*///LOGIN
@@ -5986,7 +5996,6 @@ img.activityicon.nofilter {
 .modtype_customcert,
 .modicon_customcert,
 .modtype_hvp,
-.modtype_resource,
 .modicon_hvp,
 .modtype_hotpot,
 .modicon_hotpot {
@@ -5998,8 +6007,7 @@ img.activityicon.nofilter {
 }
 
 .modtype_hvp,
-.modtype_customcert,
-.modtype_resource {
+.modtype_customcert {
     .activityiconcontainer {
         content: " ";
         background: none;
@@ -6019,8 +6027,7 @@ img.activityicon.nofilter {
 }
 
 .modtype_hvp,
-.modtype_customcert,
-.modtype_resource {
+.modtype_customcert {
     .activityiconcontainer::after {
         -webkit-filter: brightness(0) invert(1);
         filter: brightness(0) invert(1);
@@ -6042,13 +6049,6 @@ img.activityicon.nofilter {
 
 .modtype_customcert .activityiconcontainer::after {
     background: url("https://campuscoop.flacso.org.ar/theme/gflacso4cooperacion/img/bx-certification.svg");
-}
-
-.modtype_resource .activityiconcontainer::after {
-    background: url("https://campuscoop.flacso.org.ar/theme/gflacso4cooperacion/img/bx-file-blank.svg");
-    width: 26px;
-    height: 26px;
-    top: 12px;
 }
 
 .modicon_customcert,
