@@ -7572,6 +7572,10 @@ table.linea_de_tiempo {
 
 // The 5.3 Boost surfaces add grey panels around Onetopic's course content.
 // Keep authored alerts, section headings and the coloured Onetopic tabs intact.
+body.format-onetopic.path-course-view #region-main {
+    background-color: $white !important;
+}
+
 body.path-course-view .secondary-navigation,
 body.path-course-view .secondary-navigation .navigation.secondarynav-tabbar {
     background: transparent !important;
