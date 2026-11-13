@@ -2058,7 +2058,7 @@ li[data-key="home"] {
     border-radius: 8px 8px 0 0;
     transition: 0.15s ease-in-out;
     border-top: 8px solid var(--color-area-4) !important;
-    background: var(--color-area-3) !important;
+    background: var(--color-area-3);
     border-right: 1px solid $white !important;
     margin-top: 1rem;
     margin-bottom: 0;
@@ -2070,7 +2070,7 @@ li[data-key="home"] {
         font-weight: 400;
         padding-bottom: 20px !important;
         border-top: 8px solid var(--color-area) !important;
-        background: var(--color-area-2) !important;
+        background: var(--color-area-2);
         margin-top: 4px;
         box-shadow: none !important;
     }
@@ -3190,7 +3190,7 @@ ul.onetopic {
 // repaint the category colours. Onetopic's active-tab custom rules still win.
 #tabs-tree-start .tabs-wrapper ul.format_onetopic-tabs > li > a.nav-link {
     color: $black !important;
-    background-color: var(--color-area-3) !important;
+    background-color: var(--color-area-3);
     border: 0 !important;
     border-top: 8px solid var(--color-area-4) !important;
     border-radius: 8px 8px 0 0;
@@ -3201,7 +3201,7 @@ ul.onetopic {
 #tabs-tree-start .tabs-wrapper ul.format_onetopic-tabs > li > a.nav-link:focus-visible,
 #tabs-tree-start .tabs-wrapper ul.format_onetopic-tabs > li > a.nav-link.active {
     color: $black !important;
-    background-color: var(--color-area-2) !important;
+    background-color: var(--color-area-2);
     border-top-color: var(--color-area) !important;
 }
 
@@ -3213,7 +3213,7 @@ ul.onetopic {
 
 #tabs-tree-start .onetopic-tab-body ul.format_onetopic-tabs > li > a.nav-link {
     color: $black !important;
-    background-color: var(--color-area-3) !important;
+    background-color: var(--color-area-3);
     border: 0 !important;
     border-bottom: 8px solid var(--color-area-4) !important;
     border-radius: 0 0 8px 8px;
@@ -3222,7 +3222,7 @@ ul.onetopic {
 #tabs-tree-start .onetopic-tab-body ul.format_onetopic-tabs > li > a.nav-link:hover,
 #tabs-tree-start .onetopic-tab-body ul.format_onetopic-tabs > li > a.nav-link:focus-visible,
 #tabs-tree-start .onetopic-tab-body ul.format_onetopic-tabs > li > a.nav-link.active {
-    background-color: var(--color-area-2) !important;
+    background-color: var(--color-area-2);
     border-bottom-color: var(--color-area) !important;
 }
 
